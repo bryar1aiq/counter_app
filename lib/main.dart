@@ -1,5 +1,6 @@
 import 'package:bloc_practice_cubit/counter_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -48,9 +49,14 @@ class _MyHomePageState extends State<MyHomePage> {
             const Text(
               'You have pushed the button this many times:',
             ),
-            Text(
-              '$counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+            BlocBuilder<CounterCubit, int>(
+              bloc: counterCubit,
+              builder: (context, counter) {
+                return Text(
+                  '$counter',
+                  style: Theme.of(context).textTheme.headlineMedium,
+                );
+              }
             ),
           ],
         ),
@@ -58,7 +64,6 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           counterCubit.increment();
-          setState(() {});
         },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
