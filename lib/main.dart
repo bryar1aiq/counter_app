@@ -50,23 +50,33 @@ class _MyHomePageState extends State<MyHomePage> {
               'You have pushed the button this many times:',
             ),
             BlocBuilder<CounterCubit, int>(
-              bloc: counterCubit,
-              builder: (context, counter) {
-                return Text(
-                  '$counter',
-                  style: Theme.of(context).textTheme.headlineMedium,
-                );
-              }
-            ),
+                bloc: counterCubit,
+                builder: (context, counter) {
+                  return Text(
+                    '$counter',
+                    style: Theme.of(context).textTheme.headlineMedium,
+                  );
+                }),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          counterCubit.increment();
-        },
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+      floatingActionButton: Column(
+        children: [
+          FloatingActionButton(
+            onPressed: () {
+              counterCubit.increment();
+            },
+            tooltip: 'Increment',
+            child: const Icon(Icons.add),
+          ),
+          FloatingActionButton(
+            onPressed: () {
+              counterCubit.decrement();
+            },
+            tooltip: 'Decrement',
+            child: const Icon(Icons.minimize),
+          ),
+        ],
       ),
     );
   }
