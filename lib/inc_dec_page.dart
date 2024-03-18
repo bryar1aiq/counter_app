@@ -7,12 +7,13 @@ class IncDecPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-      final counterCubit = BlocProvider.of<CounterCubit>(context);
+    final counterCubit = BlocProvider.of<CounterCubit>(context);
     return Scaffold(
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton(
+            heroTag: 'btn2',
             onPressed: () {
               counterCubit.increment();
             },
@@ -23,6 +24,7 @@ class IncDecPage extends StatelessWidget {
             height: 10,
           ),
           FloatingActionButton(
+            heroTag: 'btn3',
             onPressed: () {
               counterCubit.decrement();
             },

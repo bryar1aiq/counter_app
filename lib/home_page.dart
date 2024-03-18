@@ -35,6 +35,8 @@ class MyHomePage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+          tooltip: 'navigate',
+          heroTag: 'btn1',
           child: const Icon(Icons.navigate_next),
           onPressed: () {
             Navigator.of(context).push(
