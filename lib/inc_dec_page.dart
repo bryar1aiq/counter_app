@@ -9,7 +9,7 @@ class IncDecPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final counterBloc = BlocProvider.of<CounterBloc>(context);
-    
+
     return Scaffold(
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -28,7 +28,7 @@ class IncDecPage extends StatelessWidget {
           FloatingActionButton(
             heroTag: 'btn3',
             onPressed: () {
-              // counterCubit.decrement();
+              counterBloc.add(CounterDecrement());
             },
             tooltip: 'Decrement',
             child: const Icon(Icons.minimize),
