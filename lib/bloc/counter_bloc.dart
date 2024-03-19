@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-sealed class CounterEvent {}
+sealed class CounterEvent {} /* Sealed gives more functionality than abstract class */
 
-final class CounterIncremented extends CounterEvent {}
+final class CounterIncremented extends CounterEvent {} /* It can't be extended outside the class */
 
 final class CounterDecrement extends CounterEvent {}
 
